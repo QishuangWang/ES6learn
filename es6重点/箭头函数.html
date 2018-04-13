@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//箭头函数注意点
+//			函数体内的 this 对象，绑定定义时所在的对象，而不是使用时所在的对象。
+//			不可以当作构造函数，也就是说，不可以使用 new 命令，否则会抛出一个错误。
+//			不可以使用 arguments 对象，该对象在函数体内不存在。
+			var f = v => v;//一个参数
+			//等同于
+//			var f = function (v){
+//				return(v)
+//			}
+			//如果函数没有参数或者有多个参数，可以用()代替
+			var f = () =>5;//无参数
+			//等同于
+//			var f = function(){
+//				return 5;
+//			}
+			var sum=(num1,num2)=>num1+num2;//多参数
+			//等同于
+//			var sum=function(num1,num2){
+//				return num1+num2;
+//			}
+			//箭头函数的用处之一，可以简化回调函数
+			// 正常函数写法
+//			[1,2,3].map(function (x) {
+//			  return x * x;
+//			});
+//			
+//			// 箭头函数写法
+			[1,2,3].map(x => x * x);
+		
+			//rast参数和箭头函数结合用法
+//			const numbers = (...nums) => nums;
+//			numbers(1, 2, 3, 4, 5)
+//			// [1,2,3,4,5]			
+//			const headAndTail = (head, ...tail) => [head, tail];			
+//			headAndTail(1, 2, 3, 4, 5)
+//			// [1,[2,3,4,5]]
+			
+			
+		</script>
+	</body>
+</html>

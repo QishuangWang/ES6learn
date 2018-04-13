@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>遍历器和for...of循环</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//Itrator接口简单的说就是ES6中的数据可以使用for...of循环的标志
+			//在 ES6 中，有三类数据结构原生具备 Iterator 接口：数组、某些类似数组的对象、Set 和 Map 结构。
+			//默认调用Itrator接口的方式
+//			1,解构辅助
+//			2,扩展运算符(...)
+//			3,	yield*
+//				Array.from()
+//				Map(), Set(), WeakMap(), WeakSet()
+//				Promise.all(), Promise.race()
+			//for..of
+//			有着同 for...in 一样的简洁语法，但是没有 for...in 那些缺点。
+//			不同用于 forEach 方法，它可以与 break、continue 和 return 配合使用。
+//			提供了遍历所有数据结构的统一操作接口。
+			//数组
+			const arr = ['red', 'green', 'blue'];
+			let iterator  = arr[Symbol.iterator]();			
+			for(let v of arr) {
+			  console.log(v); // red green blue
+			}
+			
+			//Set 和 Map 结构
+			var engines = Set(["Gecko", "Trident", "Webkit", "Webkit"]);
+			for (var e of engines) {
+			  console.log(e);
+			}
+			// Gecko
+			// Trident
+			// Webkit			
+			var es6 = new Map();
+			es6.set("edition", 6);
+			es6.set("committee", "TC39");
+			es6.set("standard", "ECMA-262");
+			for (var [name, value] of es6) {
+			  console.log(name + ": " + value);
+			}
+			// edition: 6
+			// committee: TC39
+			// standard: ECMA-262
+			
+			//计算生成的数据结构
+//			entries() 返回一个遍历器，用来遍历 [键名, 键值] 组成的数组。对于数组，键名就是索引值；
+//				对于 Set，键名与键值相同。Map 结构的 iterator 接口，默认就是调用 entries 方法。
+//			keys() 返回一个遍历器，用来遍历所有的键名。
+//			values() 返回一个遍历器，用来遍历所有的键值。
+			let arr = ['a', 'b', 'c'];
+			for (let pair of arr.entries()) {
+			  console.log(pair);
+			}
+			// 字符串
+			let str = "hello";
+			
+			for (let s of str) {
+			  console.log(s); // h e l l o
+			}
+			
+			// DOM NodeList对象
+			let paras = document.querySelectorAll("p");
+			
+			for (let p of paras) {
+			  p.classList.add("test");
+			}
+			
+			// arguments对象
+			function printArgs() {
+			  for (let x of arguments) {
+			    console.log(x);
+			  }
+			}
+			printArgs('a', 'b');
+			// 'a'
+			// 'b'
+		</script>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>解构赋值</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//es5
+			var a=1;
+			var b=2;
+			var c=3;
+			//es6
+			var [a,b,c]=[1,2,3]
+			//按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）
+			//嵌套数组的解构方式
+			let [foo,[[bar],baz]=[1,[[2],3]]
+//			foo=1
+//			bar=2
+//			baz=3
+			let [,,third] = ["foo", "bar", "baz"];
+//			third='baz'
+			let	[x,...y]=[1,2,3,4] //
+//			x=1
+//			y=[2,3,4]
+			//解构允许指定默认值
+			var [foo=true]=[]
+//			foo=true
+			//只要数据结构可遍历Iterator,就可以采用数组形式解构
+			//对象的解构,变量名必须和属性名一致，否则undefined
+			var [foo,bar]={foo:'aaa',bar:'bbb'}
+//			foo='aaa'
+//			bar='bbb'
+			//不用数组形式解构可以这样
+			var {foo:baz}={foo:'aaa'}
+//			baz='aaa'
+//			或者
+//			let obj={first:'hi',last:'nihao'};
+//			let {first:f,last:l}=obj;
+//			f='hi'
+//			l='nihao'
+			
+		</script>
+	</body>
+</html>
